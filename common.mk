@@ -30,13 +30,15 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl:32 \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
+    android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
     audio.primary.exynos9611 \
     audio.r_submix.default \
     audio.usb.default \
     libaudioroute \
     libtinyalsa \
-    libtinycompress
+    libtinycompress \
+    sound_trigger.primary.dummy
 
 PRODUCT_PACKAGES += \
     SamsungDAP
