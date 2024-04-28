@@ -436,6 +436,18 @@
 	<path name="dev-fm_radio-input">
 	</path>
 
+	<path name="dev-main-mic">
+		<ctl name="RECMIX1L BST3 Switch" value="1"/>
+		<ctl name="RECMIX1R BST3 Switch" value="1"/>
+		<ctl name="Stereo1 ADC L Mux" value="ADC1 L"/>
+		<ctl name="Stereo1 ADC R Mux" value="ADC1 R"/>
+		<ctl name="Stereo1 ADC L1 Mux" value="ADC"/>
+		<ctl name="Stereo1 ADC R1 Mux" value="ADC"/>
+		<ctl name="Stereo1 ADC MIXL ADC1 Switch" value="1"/>
+		<ctl name="Stereo1 ADC MIXR ADC1 Switch" value="1"/>
+		<ctl name="Main Mic Switch" value="1" />
+	</path>
+
 	<path name="dev-2nd-mic">
 		<ctl name="RECMIX1L BST4 Switch" value="1"/>
 		<ctl name="RECMIX1R BST4 Switch" value="1"/>
@@ -474,14 +486,6 @@
 		<ctl name="Stereo1 ADC MIXR ADC1 Switch" value="1"/>
 		<ctl name="Main Mic Switch" value="1" />
 		<ctl name="Sub Mic Switch" value="1" />
-	</path>
-
-	<path name="dev-main-mic">
-		<path name="route-ap-record" />
-		<path name="dev-dual-invert-mic" />
-		<ctl name="ABOX OEM AP Call BW" value="0x020201" />
-		<ctl name="ABOX OEM Bargein type" value="2" />
-		<ctl name="ABOX OEM FM Mode" value="2" />
 	</path>
 
 	<path name="dev-headset-mic">
@@ -3683,9 +3687,8 @@
 	<!-- Input stage volume -->
 	<!-- media input volume -->
 	<path name="gain-media-mic">
-		<ctl name="IN3 Boost Volume" value="41"/>
-		<ctl name="IN4 Boost Volume" value="41"/>
-		<ctl name="STO1 ADC Capture Volume" value="47 47"/>
+		<ctl name="IN3 Boost Volume" value="34"/>
+		<ctl name="STO1 ADC Capture Volume" value="38 38"/>
 	</path>
 
 	<path name="gain-media-2nd-mic">
@@ -3836,7 +3839,8 @@
 
 	<!-- recognition input volume -->
 	<path name="gain-recognition-mic">
-		<path name="gain-media-mic" />
+		<ctl name="IN3 Boost Volume" value="53"/>
+		<ctl name="STO1 ADC Capture Volume" value="47 47"/>
 	</path>
 
 	<path name="gain-recognition-2nd-mic">
