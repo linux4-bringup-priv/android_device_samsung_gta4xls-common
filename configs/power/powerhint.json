@@ -1,6 +1,16 @@
 {
     "Nodes": [
         {
+            "Name": "GPUMinFreq",
+            "Path": "/dev/gpu_freq_min",
+            "Values": [
+                "0x000ba860",
+                "0x00003f7a0",
+            ],
+            "HoldFd": true,
+            "ResetOnInit": true
+        },
+        {
             "Name": "TASchedtuneBoost",
             "Path": "/dev/stune/top-app/schedtune.boost",
             "Values": [
@@ -101,6 +111,18 @@
             "Node": "DoubleTapToWakeEnable",
             "Duration": 0,
             "Value": "aot_enable,1"
+        },
+        {
+            "PowerHint": "EXPENSIVE_RENDERING",
+            "Node": "GPUMinFreq",
+            "Duration": 0,
+            "Value": "0x000ba860"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "GPUMinFreq",
+            "Duration": 5000,
+            "Value": "0x000ba860"
         }
     ]
 }
