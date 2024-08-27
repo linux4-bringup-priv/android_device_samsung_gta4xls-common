@@ -53,7 +53,7 @@ audioproxy {
         use_soundtrigger_hal: {
             cflags: [
                 "-DSUPPORT_STHAL_INTERFACE",
-                "-DTARGET_SOC_NAME=exynos9611",
+                "-DTARGET_SOC_NAME=s5e8825",
             ],
         },
         use_quad_mic: {

@@ -130,8 +130,8 @@ Value *WriteDataBtFn(const char* name, State *state,
   return StringValue(std::to_string(ret));
 }
 
-void Register_librecovery_updater_exynos9611() {
-  RegisterFunction("exynos9611.verify_no_downgrade", VerifyNoDowngradeFn);
-  RegisterFunction("exynos9611.mark_header_bt", MarkHeaderBtFn);
-  RegisterFunction("exynos9611.write_data_bt", WriteDataBtFn);
+void Register_librecovery_updater_s5e8825() {
+  RegisterFunction("s5e8825.verify_no_downgrade", VerifyNoDowngradeFn);
+  RegisterFunction("s5e8825.mark_header_bt", MarkHeaderBtFn);
+  RegisterFunction("s5e8825.write_data_bt", WriteDataBtFn);
 }
