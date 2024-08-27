@@ -70,7 +70,7 @@ ro.vendor.cscsupported=1
 
 ## SoC
 ro.soc.manufacturer=Samsung
-ro.soc.model=Exynos 9611
+ro.soc.model=Exynos 1280
 
 ## Wi-Fi
 wifi.direct.interface=p2p0

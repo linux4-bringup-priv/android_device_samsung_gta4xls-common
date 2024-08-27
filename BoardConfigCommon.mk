@@ -13,10 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/samsung/gta4xl-common
+COMMON_PATH := device/samsung/gta4xls-common
 
 ## Inherit proprietary vendor configuartion
-include vendor/samsung/gta4xl-common/BoardConfigVendor.mk
+include vendor/samsung/gta4xls-common/BoardConfigVendor.mk
 
 ## Architecture
 TARGET_ARCH := arm64
@@ -78,7 +78,7 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
 ## DTB
-BOARD_DTB_CFG := $(COMMON_PATH)/configs/kernel/exynos9611.cfg
+BOARD_DTB_CFG := $(COMMON_PATH)/configs/kernel/s5e8825.cfg
 
 ## DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
@@ -111,10 +111,7 @@ TARGET_USES_VULKAN := true
 ## Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_NO_GCC := true
-TARGET_KERNEL_SOURCE := kernel/samsung/gta4xl
-
-## Keymaster
-TARGET_KEYMASTER_VARIANT := samsung
+TARGET_KERNEL_SOURCE := kernel/samsung/gta4xls
 
 ## Manifest
 # HIDL
@@ -137,10 +134,10 @@ BOARD_ROOT_EXTRA_FOLDERS := efs
 
 ## Platform
 BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := universal9611
-TARGET_BOOTLOADER_BOARD_NAME := exynos9611
-TARGET_SOC := exynos9611
-include hardware/samsung_slsi-linaro/config/BoardConfig9611.mk
+TARGET_BOARD_PLATFORM := universal8825
+TARGET_BOOTLOADER_BOARD_NAME := s5e8825
+TARGET_SOC := s5e8825
+include hardware/samsung_slsi-linaro/config/BoardConfig8825.mk
 
 ## Properties
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
@@ -148,9 +145,9 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 ## Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_USES_FULL_RECOVERY_IMAGE := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.exynos9611
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.s5e8825
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_exynos9611
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_s5e8825
 
 ## Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
