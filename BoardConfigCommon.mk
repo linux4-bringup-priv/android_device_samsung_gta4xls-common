@@ -15,6 +15,8 @@
 
 COMMON_PATH := device/samsung/gta4xls-common
 
+BUILD_BROKEN_DUP_RULES := true
+
 ## Inherit proprietary vendor configuartion
 include vendor/samsung/gta4xls-common/BoardConfigVendor.mk
 
