@@ -86,6 +86,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images_vendor
 
+# Codec2
+PRODUCT_PACKAGES += \
+    samsung.hardware.media.c2@1.2-service \
+
+PRODUCT_PACKAGES += \
+    libExynosC2H264Dec \
+    libExynosC2H264Enc \
+    libExynosC2HevcDec \
+    libExynosC2HevcEnc \
+    libExynosC2Vp8Dec \
+    libExynosC2Vp8Enc
+
+PRODUCT_PACKAGES += \
+    codec2.vendor.base.policy \
+    codec2.vendor.ext.policy
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
@@ -183,23 +199,6 @@ PRODUCT_PACKAGES += \
 # Memtrack
 PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.samsung-mali
-
-# OMX
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libExynosOMX_Core \
-    libExynosOMX_Resourcemanager \
-    libOMX.Exynos.AVC.Decoder \
-    libOMX.Exynos.AVC.Encoder \
-    libOMX.Exynos.HEVC.Decoder \
-    libOMX.Exynos.HEVC.Encoder \
-    libOMX.Exynos.MPEG4.Decoder \
-    libOMX.Exynos.MPEG4.Encoder \
-    libOMX.Exynos.VP8.Decoder \
-    libOMX.Exynos.VP8.Encoder \
-    libOMX.Exynos.VP9.Decoder \
-    libOMX.Exynos.VP9.Encoder \
-    libOMX.Exynos.WMV.Decoder
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
