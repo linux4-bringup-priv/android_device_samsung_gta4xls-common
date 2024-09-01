@@ -100,17 +100,12 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl:64 \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1
+    android.hardware.graphics.allocator@4.0-service \
+    android.hardware.graphics.mapper@4.0-impl
 
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.slsi \
-    gralloc.s5e8825 \
     libion
-
-PRODUCT_PACKAGES += \
-    libGrallocWrapper
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
