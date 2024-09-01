@@ -64,13 +64,16 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        vendor/lib*/libsensorlistener.so)
-            "${PATCHELF}" --add-needed libshim_sensorndkbridge.so "${2}"
-            ;;
-        vendor/lib*/libskeymaster4device.so)
+        vendor/bin/hw/android.hardware.security.keymint-service|vendor/lib*/libskeymint*.so)
+            "${PATCHELF}" --replace-needed android.hardware.security.keymint-V1-ndk_platform.so android.hardware.security.keymint-V1-ndk.so "${2}"
+            "${PATCHELF}" --replace-needed android.hardware.security.secureclock-V1-ndk_platform.so android.hardware.security.secureclock-V1-ndk.so "${2}"
+            "${PATCHELF}" --replace-needed android.hardware.security.sharedsecret-V1-ndk_platform.so android.hardware.security.sharedsecret-V1-ndk.so "${2}"
             "${PATCHELF}" --replace-needed libcrypto.so libcrypto-tm.so "${2}"
             "${PATCHELF}" --add-needed libssl-tm.so "${2}"
             "${PATCHELF}" --add-needed libshim_crypto.so "${2}"
+            ;;
+        vendor/lib*/libsensorlistener.so)
+            "${PATCHELF}" --add-needed libshim_sensorndkbridge.so "${2}"
             ;;
         vendor/lib*/libwvhidl.so)
             "${PATCHELF}" --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-full-3.9.1.so "${2}"
