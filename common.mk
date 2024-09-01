@@ -69,10 +69,18 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider-service.samsung \
-    libsensorndkbridge
+    android.hardware.thermal@2.0.vendor:64 \
+    liblzma.vendor:64 \
+    libsensorndkbridge:64 \
+    libshim_camera:64 \
+    libunwindstack.vendor:64 \
+    libutilscallstack.vendor:64 \
+    libvpl:64
 
 PRODUCT_PACKAGES += \
-    libhwjpeg
+    libcsc:64 \
+    libepicoperator:64 \
+    libhwjpeg:64
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -101,7 +109,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor:32 \
+    android.hardware.drm@1.4.vendor:64 \
     android.hardware.drm-service.clearkey
 
 # fastbootd
@@ -154,7 +162,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/idc/sec_e-pen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/sec_e-pen.idc
 
-# Keymaster
+# Keymint
+PRODUCT_PACKAGES += \
+    android.hardware.security.sharedsecret-V1-ndk.vendor:64 \
+    libcppbor_external.vendor:64 \
+    libkeymaster4_1support.vendor:64 \
+    libkeymaster_portable.vendor:64 \
+    libkeymint.vendor:64 \
+    libpuresoftkeymasterdevice.vendor:64
+
 PRODUCT_PACKAGES += \
     libcrypto-tm \
     libshim_crypto:64 \
@@ -163,10 +179,6 @@ PRODUCT_PACKAGES += \
 # Lineage Health
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
-
-# Media
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
 # Memtrack
 PRODUCT_PACKAGES += \
@@ -282,6 +294,10 @@ PRODUCT_SOONG_NAMESPACES += bootable/deprecated-ota
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.samsung \
     android.hardware.usb.gadget-service.samsung
+
+# VNDK
+PRODUCT_PACKAGES += \
+    libutils-v32
 
 # WiFi
 PRODUCT_PACKAGES += \

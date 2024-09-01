@@ -62,21 +62,36 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function patch_keymint() {
+    "${PATCHELF}" --replace-needed android.hardware.security.keymint-V1-ndk_platform.so android.hardware.security.keymint-V1-ndk.so "${2}"
+    "${PATCHELF}" --replace-needed android.hardware.security.secureclock-V1-ndk_platform.so android.hardware.security.secureclock-V1-ndk.so "${2}"
+    "${PATCHELF}" --replace-needed android.hardware.security.sharedsecret-V1-ndk_platform.so android.hardware.security.sharedsecret-V1-ndk.so "${2}"
+}
+
 function blob_fixup() {
     case "${1}" in
-        vendor/lib*/libsensorlistener.so)
-            "${PATCHELF}" --add-needed libshim_sensorndkbridge.so "${2}"
-            ;;
-        vendor/lib*/libskeymaster4device.so)
+        vendor/bin/hw/android.hardware.security.keymint-service.samsung|vendor/lib*/libskeymint*.so)
+            patch_keymint "${1}" "${2}"
             "${PATCHELF}" --replace-needed libcrypto.so libcrypto-tm.so "${2}"
             "${PATCHELF}" --add-needed libssl-tm.so "${2}"
             "${PATCHELF}" --add-needed libshim_crypto.so "${2}"
+            ;;
+        vendor/etc/init/android.hardware.security.keymint-service.samsung.rc)
+            sed -i 's/android\.hardware\.security\.keymint-service$/android.hardware.security.keymint-service.samsung/g' "${2}"
+            ;;
+        vendor/lib*/libsensorlistener.so)
+            "${PATCHELF}" --add-needed libshim_sensorndkbridge.so "${2}"
             ;;
         vendor/lib*/libwvhidl.so)
             "${PATCHELF}" --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-full-3.9.1.so "${2}"
             ;;
         vendor/lib*/sensors.*.so)
             "${PATCHELF}" --remove-needed libhidltransport.so "${2}"
+            "${PATCHELF}" --replace-needed libutils.so libutils-v32.so "${2}"
+            sed -i 's/_ZN7android6Thread3runEPKcim/_ZN7utils326Thread3runEPKcim/g' "${2}"
+            ;;
+        vendor/lib*/vendor.samsung.hardware.keymint-V1-ndk_platform.so)
+            patch_keymint "${1}" "${2}"
             ;;
     esac
 }
