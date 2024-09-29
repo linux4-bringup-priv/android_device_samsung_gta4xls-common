@@ -111,6 +111,10 @@ vendor/etc/init/android.hardware.security.keymint-service.rc:vendor/etc/init/and
 -vendor/lib64/libskeymint_cli.so
 -vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so
 
+# Ramdisk firmware
+vendor_ramdisk/vendor/firmware/hx83102e_gta4xls.bin
+vendor_ramdisk/vendor/firmware/w9021_gta4xls.bin
+
 # Recovery firmware
 recovery/root/vendor/firmware/hx83102e_gta4xls.bin
 recovery/root/vendor/firmware/w9021_gta4xls.bin
