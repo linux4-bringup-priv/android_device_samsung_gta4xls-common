@@ -4,15 +4,15 @@
             "Name": "GPUMinFreq",
             "Path": "/sys/kernel/gpu/gpu_min_clock",
             "Values": [
-                "764000",
-                "455000",
-                "260000",
+                "806000",
+                "507000",
+                "312000",
             ],
             "ResetOnInit": true
         },
         {
-            "Name": "TASchedtuneBoost",
-            "Path": "/dev/stune/top-app/schedtune.boost",
+            "Name": "TABoost",
+            "Path": "/dev/cpuctl/top-app/cpu.uclamp.min",
             "Values": [
                 "30",
                 "5"
@@ -60,7 +60,7 @@
     "Actions": [
         {
             "PowerHint": "INTERACTION",
-            "Node": "TASchedtuneBoost",
+            "Node": "TABoost",
             "Duration": 0,
             "Value": "30"
         },
@@ -68,7 +68,7 @@
             "PowerHint": "INTERACTION",
             "Node": "GPUMinFreq",
             "Duration": 0,
-            "Value": "455000"
+            "Value": "507000"
         },
         {
             "PowerHint": "LAUNCH",
@@ -122,7 +122,7 @@
             "PowerHint": "EXPENSIVE_RENDERING",
             "Node": "GPUMinFreq",
             "Duration": 0,
-            "Value": "764000"
+            "Value": "806000"
         }
     ]
 }
