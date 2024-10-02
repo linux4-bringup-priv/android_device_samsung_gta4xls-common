@@ -138,18 +138,12 @@ on init
     write /dev/cpuset/foreground-boost/cpus 0-7
 
     # EPIC interfaces
-    chmod 660 /dev/stune/top-app/schedtune.boost
     chown system system /dev/mode
     chown system system /dev/exynos-migov
     chown system system /sys/devices/platform/exynos-migov/control/control_profile
     chown system system /sys/devices/platform/exynos-migov/control/set_margin
     chown system system /sys/devices/platform/exynos-migov/control/fragutil_thr
     chown system system /sys/devices/platform/exynos-migov/migov/running
-    chown system system /dev/cpu_dma_latency
-    chown system system /dev/cluster0_freq_min
-    chown system system /dev/cluster1_freq_min
-    chown system system /dev/cluster0_freq_max
-    chown system system /dev/cluster1_freq_max
     chown system system /dev/cpu_online_min
     chown system system /dev/cpu_online_max
     chown system system /dev/bus_throughput
@@ -162,6 +156,18 @@ on init
     chown system system /dev/npu_throughput_max
     chown system system /dev/device_throughput
     chown system system /dev/device_throughput_max
+
+    # Power HAL
+    chown system system /dev/cluster0_freq_min
+    chown system system /dev/cluster0_freq_max
+    chown system system /dev/cluster1_freq_min
+    chown system system /dev/cluster1_freq_max
+    chown system system /dev/cpu_dma_latency
+    chmod 0664 /dev/cluster0_freq_min
+    chmod 0664 /dev/cluster0_freq_max
+    chmod 0664 /dev/cluster1_freq_min
+    chmod 0664 /dev/cluster1_freq_max
+    chmod 0664 /dev/cpu_dma_latency
 
     setprop vendor.powerhal.init 1
 
